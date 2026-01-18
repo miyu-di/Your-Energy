@@ -1,0 +1,41 @@
+<section class="exercises container">
+  <div class="exercises-header">
+    <div class="exercises-breadcrumbs">
+      <button aria-label="Exercises" class="breadcrumb-home">
+        <span class="exercises-title">Exercises</span>
+      </button>
+      <span class="exercises-title breadcrumb-divider">/</span>
+      <span class="breadcrumb-current"></span>
+    </div>
+    <div class="filter-search-wrapper">
+      <form class="form-search hide-show-transition hide" id="search-form">
+        <label class="search-label" for="exercises-filter"></label>
+        <input type="text" class="search-input hide" id="exercises-filter" placeholder="Search exercises..." />
+        <svg class="icon-search" width="20" height="20" viewBox="0 0 18 18" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8.25 14.25C11.5637 14.25 14.25 11.5637 14.25 8.25C14.25 4.93629 11.5637 2.25 8.25 2.25C4.93629 2.25 2.25 4.93629 2.25 8.25C2.25 11.5637 4.93629 14.25 8.25 14.25Z"
+            stroke="#242424" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M15.7498 15.75L12.4873 12.4875" stroke="#242424" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+
+        <button class="clear-search" type="button" aria-label="Clear search">x</button>
+      </form>
+      <ul class="exercises-categories"></ul>
+    </div>
+  </div>
+  <div class="exercises-container">
+
+    <div class="exercises-content hide-show-transition">
+      <div class="exercises-list"></div>
+      <ul class="exercises-pagination"></ul>
+    </div>
+    <!-- Filtered Exercises dont remove its hidden unless clicked -->
+    <div class="filtered-exercises-cards-wrapper hide-show-transition hide">
+      <ul class="filtered-exercises-list"></ul>
+      <div class="filtered-pagination"></div>
+    </div>
+    <!-- end Filtered exercises -->
+  </div>
+</section>

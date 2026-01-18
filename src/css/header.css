@@ -42,3 +42,20 @@
 .nav-link.active::after {
   background: #747bff;
 }
+
+.li {
+  background-color: pink;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-media {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: black;
+  stroke: black;
+}
