@@ -1,23 +1,23 @@
 <header class="header">
-  <div class="container">
-    <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="132" height="24" stroke="black">
+  <div class="header-container">
+    <a class="nav-logo" href="../index.html" aria-label="Site logo">
+        <svg class="nav-logo-icon" width="132" height="24">
           <use href="../images/icons.svg#your-energy"></use>
         </svg>
     </a>
 
-    <nav class="nav">
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="../index.html">Home</a>
+    <nav class="header-nav">
+      <ul class="header-nav-list">
+        <li class="header-nav-item">
+          <a class="header-nav-link header-nav-link-active" href="../index.html">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="../favorite.html">Favorite</a>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="../favorite.html">Favorite</a>
         </li>
       </ul>
     </nav>
 
-    <ul>
+    <ul class="header-list">
       <li class="li">
         <a class="icon-media" href="" aria-label="facebook">
           <svg class="" width="30" height="30">
@@ -27,7 +27,7 @@
       </li>
       <li class="li">
         <a class="icon-media" href="" aria-label="instagram">
-          <svg class="" width="30" height="30">
+          <svg class="" width="30" height="30" >
             <use href="../images/icons.svg#insta"></use>
           </svg>
         </a>
@@ -42,12 +42,13 @@
     </ul>
 
     <!-- BUTTON MOBILE MENU -->
-    <button class="mobile-menu-open-button js-open-menu" type="button">
+    <button class="burger-button js-open-menu" type="button">
       <svg
         class="mobile-menu-open-icon"
         width="32"
-        height="16"
+        height="32"
         aria-label="mobile menu open icon"
+        stroke="black"
       >
         <use href="../images/icons.svg#burger"></use>
       </svg>

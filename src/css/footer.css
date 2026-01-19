@@ -1,12 +1,21 @@
-.footer {
+.footer-container {
   padding: 20px 0;
+  background-color: #242424;
+  color: #F4F4F4;
 }
+
+.footer-logo-icon {
+  fill: #F4F4F4;
+}
+
 .footer-desc {
   text-align: center;
 }
+
 .footer-link {
   position: relative;
 }
+
 .footer-link::before {
   content: '';
   position: absolute;
