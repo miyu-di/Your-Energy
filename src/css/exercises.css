@@ -1,0 +1,300 @@
+.exercises-section {
+  margin: 20px;
+}
+
+.is-hidden {
+  display: none;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.filter-btn {
+  border: none;
+  background: transparent;
+
+  position: relative;
+  padding-bottom: 4px;
+  font-size: 14px;
+  color: rgba(36, 36, 36, 0.4); /* Неактивний колір */
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  color: #242424; /* Активний колір */
+}
+
+.filter-btn.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #242424;
+  border-radius: 2px;
+}
+
+.filter-item {
+  width: 290px;
+  height: 242px;
+  border-radius: 20px;
+}
+
+.exercises-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.exercises-search {
+  display: flex;
+  align-items: center;
+  width: 335px;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #1b1b1b; 
+  border-radius: 30px;    
+  background-color: transparent;
+}
+
+.exercises-search input {
+  flex-grow: 1;
+  border: none;           
+  outline: none;          
+  background: transparent;
+  font-size: 16px;
+  color: #1b1b1b;
+}
+
+.exercises-search input::placeholder {
+  color: #1b1b1b;         
+  opacity: 1;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  stroke: #242424;
+  fill: none;
+}
+
+.exercise-box {
+  /* display: flex; */
+}
+
+.exercises-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Робимо картку клікабельною */
+.filter-item {
+  width: 290px; /* або calc(33.33% - 16px) для адаптиву */
+  height: 242px;
+  border-radius: 20px;
+  cursor: pointer; /* ВАЖЛИВО: показує руку при наведенні */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  /* Flex для центрування тексту */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.filter-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #f4f4f4;
+}
+
+.exercises-title {
+  display: flex;
+  gap: 8px;
+  color: #242424;
+  font-weight: 400;
+font-size: 28px;
+
+/* line-height: 38px; */ 
+line-height: 136%;
+letter-spacing: -0.02em;
+
+align-items: center;
+}
+.breadcrumb-current {
+  color: rgba(36, 36, 36, 0.5); 
+
+  font-weight: 400;
+font-size: 20px;
+
+/* line-height: 20px; */ 
+line-height: 100%;
+letter-spacing: -0.02em;
+}
+
+
+
+.exercise-item {
+  background-color: #FFFFFF;
+  padding: 16px;
+  border-radius: 15px;
+  min-width: 335px;
+}
+
+.exercise-card-top {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.exercise-badge {
+  border: 1px solid #242424;
+  border-radius: 15px;
+  padding: 5px 8px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #242424;
+  margin-right: 17px;
+}
+
+.exercise-rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 117px;
+}
+
+.exercise-rating {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #242424;
+}
+
+.exercise-start-btn {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exercise-card-title {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.exercise-info-list {
+  display: flex;
+  gap: 10px;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;       
+  overflow: hidden;
+}
+
+.exercise-info-item {
+  display: flex;
+  gap: 2px;
+  white-space: nowrap;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.info-label {
+  font-weight: 400;
+  font-size: 12px;
+
+  line-height: 18px;
+  color: rgba(36, 36, 36, 0.4);
+}
+
+.info-value {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+
+.exercise-box {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.exercises-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .exercises-list {
+    gap: 32px 16px;
+  }
+
+  .filter-item, .exercise-item {
+    width: calc((100% - 16px) / 2); 
+  }
+
+  .exercises-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  
+  .exercises-controls {
+    flex-direction: row; 
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .exercise-box {
+    flex-direction: row; 
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .exercise-box > div:first-child {
+    flex-grow: 1;
+  }
+
+  .quote-section {
+    order: -1;      
+    width: 335px;  
+    flex-shrink: 0;
+  }
+
+  .filter-item, .exercise-item {
+    width: calc((100% - 32px) / 3); 
+  }
+}

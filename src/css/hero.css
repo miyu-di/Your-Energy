@@ -150,9 +150,9 @@
     font-weight: 400;
     line-height: 1.28; /* 128.571% */
     letter-spacing: -0.02em;
-
+    border: 1px solid #242424;
     border-radius: 30px;
-    border: 1px solid var(--primary);
+
     display: flex;
     padding: 4px 12px;
     justify-content: center;

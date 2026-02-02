@@ -1,0 +1,137 @@
+.is-hidden {
+  display: none !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  z-index: 1000;
+  opacity: 1; transition: opacity 0.3s;
+}
+
+.modal-close-btn {
+    border: none;
+    background: transparent;
+}
+
+.modal-close-icon {
+    stroke: #F4F4F4;
+}
+
+.modal-content {
+  background: #1B1B1B; /* Темний колір з макета */
+  color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+}
+
+.modal-exercise-card {
+  display: flex; 
+  gap: 40px;
+}
+
+.modal-gif {
+  width: 270px; 
+  height: 260px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.modal-stats-list {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px;
+  padding: 20px 0; 
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal-stat-item span { color: rgba(255,255,255,0.4); font-size: 12px; display: block; }
+
+.star.filled { 
+    color: #EEA10C; 
+} 
+.star { 
+    color: rgba(255,255,255,0.2); 
+}
+
+.modal-btns { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 30px; 
+}
+
+.btn-favorite {
+  background: #F4F4F4; color: #1B1B1B;
+  padding: 12px 24px; border-radius: 30px; font-weight: 500;
+}
+
+.btn-rating {
+  background: transparent; 
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 24px; 
+  border-radius: 30px;
+}
+
+.no-scroll { 
+    overflow: hidden; 
+}
+
+
+/* ---------------------------- Rating styles ---------------------------- */
+
+.star-input {
+  font-size: 24px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.2); /* Сірі зірки */
+  transition: color 0.2s;
+}
+
+.star-input.active, .star-input:hover {
+  color: #EEA10C; /* Золоті зірки при виборі */
+}
+
+.rating-value-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.rating-input, .rating-textarea {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(244, 244, 244, 0.3);
+  border-radius: 30px;
+  padding: 12px 18px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.rating-textarea {
+  border-radius: 15px;
+  height: 100px;
+  resize: none;
+}
+
+.rating-send-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f4f4f4;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}

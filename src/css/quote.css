@@ -1,0 +1,176 @@
+.quote-section {
+  padding: 20px;
+}
+
+.quote-of-the-container {
+  padding: 0;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+  gap: 20px;
+}
+
+.quote-box {
+  display: flex;
+  width: 100%;
+  border-radius: 30px;
+  background-color: #242424;
+  padding: 20px;
+  gap: 18px;
+}
+
+.quote-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.quote-inverted-commas-svg {
+  fill: #f6f6f6;
+}
+
+.quote-title {
+  color: #f4f4f4;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.quote-text {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 18px;
+  color: rgba(244, 244, 244, 0.6);
+}
+
+.quote-author {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #f4f4f4;
+}
+
+/* Styles for 110 min card */
+
+.min-box {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.min-line {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.min-icon-wrap {
+  background-color: #242424;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.min-icon {
+  fill: #f4f4f4;
+}
+
+.min-header {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #242424;
+}
+
+.min-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.min-title {
+  font-weight: 400;
+  font-size: 14px;
+
+  line-height: 18px;
+  color: rgba(36, 36, 36, 0.6);
+}
+
+.min-text {
+  font-weight: 400;
+  font-size: 14px;
+  padding-left: 50px;
+
+  line-height: 18px;
+  color: #242424;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.quote-img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+/* --- Mobile --- */
+.quote-of-the-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Tablet (768px) --- */
+@media screen and (min-width: 768px) {
+  .quote-of-the-container {
+    flex-direction: row; /* Текст і картинка в ряд */
+    flex-wrap: wrap;     /* Дозволяємо перенос */
+    height: 480px;       /* Фіксуємо висоту для всього блоку */
+  }
+
+  /* Щоб картинка була справа на всю висоту */
+  .quote-img {
+    /* order: 2; */
+    /* width: calc(50% - 10px); */
+    height: 100%;
+    /* object-fit: cover; */
+  }
+
+  /* Блоки зліва */
+  .quote-box, .min-box {
+    /* order: 1; */
+    width: calc(50% - 10px);
+    height: calc(50% - 10px); 
+  }
+}
+
+/* --- Desktop (1440px) --- */
+@media screen and (min-width: 1440px) {
+  .quote-of-the-container {
+    flex-direction: column; /* Знову стовпчиком для вузької бічної панелі */
+    height: auto;
+    width: 335px;
+  }
+
+  .quote-box, .min-box, .quote-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .quote-img {
+    height: 242px;
+  }
+}

@@ -34,6 +34,7 @@
 
   .header-list {
     display: flex;
+    gap: 12px;
   }
 
   .burger-button {
@@ -74,13 +75,20 @@
 
 
 
-.li {
-  /* background-color: pink; */
+.li-header {
   width: 50px;
   height: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(36, 36, 36, 0.1);
+  border-radius: 10px;
+}
+
+.icon-media {
+  fill: #242424;
+  display: flex;
+  align-items: center;
 }
 
 
