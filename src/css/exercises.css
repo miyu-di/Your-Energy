@@ -14,14 +14,16 @@
 
   position: relative;
   padding-bottom: 4px;
-  font-size: 14px;
-  color: rgba(36, 36, 36, 0.4); /* Неактивний колір */
+font-size: 16px;
   transition: color 0.3s ease;
   cursor: pointer;
+  font-weight: 400;
+line-height: 24px; 
+color: rgba(36, 36, 36, 0.6);
 }
 
 .filter-btn.active {
-  color: #242424; /* Активний колір */
+  color: #242424; 
 }
 
 .filter-btn.active::after {
@@ -88,9 +90,6 @@
   fill: none;
 }
 
-.exercise-box {
-  /* display: flex; */
-}
 
 .exercises-list {
   display: flex;
@@ -99,17 +98,16 @@
   gap: 10px;
 }
 
-/* Робимо картку клікабельною */
+
 .filter-item {
-  width: 290px; /* або calc(33.33% - 16px) для адаптиву */
+  width: 290px; 
   height: 242px;
   border-radius: 20px;
-  cursor: pointer; /* ВАЖЛИВО: показує руку при наведенні */
+  cursor: pointer; 
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 
-  /* Flex для центрування тексту */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +134,6 @@
   font-weight: 400;
 font-size: 28px;
 
-/* line-height: 38px; */ 
 line-height: 136%;
 letter-spacing: -0.02em;
 
@@ -148,7 +145,6 @@ align-items: center;
   font-weight: 400;
 font-size: 20px;
 
-/* line-height: 20px; */ 
 line-height: 100%;
 letter-spacing: -0.02em;
 }
