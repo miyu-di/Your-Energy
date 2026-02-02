@@ -6,4 +6,3 @@ import('./js/filters');
 import('./js/modals');
 import('./js/subscription')
 import('./js/favorites')
-import('./js/header-logic')
