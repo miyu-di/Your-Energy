@@ -1,4 +1,4 @@
-import{getFilters as h,getExercises as x}from"./api-CA10J7K2.js";import"./vendor-D1yz-ZLW.js";function b(e){return e.map(({_id:t,name:a,rating:i,burnedCalories:d,time:l,bodyPart:y,target:w})=>`
+import{getFilters as x,getExercises as b}from"./api-CA10J7K2.js";import"./vendor-D1yz-ZLW.js";function M(e){return e.map(({_id:t,name:s,rating:i,burnedCalories:o,time:a,bodyPart:n,target:y})=>`
       <li class="exercise-item">
         <div class="exercise-card-top">
           <span class="exercise-badge">WORKOUT</span>
@@ -26,36 +26,36 @@ import{getFilters as h,getExercises as x}from"./api-CA10J7K2.js";import"./vendor
                 <path d="M15.8448 7.30102C16.7564 7.30102 17.4954 6.56206 17.4954 5.65051C17.4954 4.73896 16.7564 4 15.8448 4C14.9333 4 14.1943 4.73896 14.1943 5.65051C14.1943 6.56206 14.9333 7.30102 15.8448 7.30102Z" fill="#F4F4F4" />
             </svg>
           </div>
-          <h3 class="exercise-name">${u(a)}</h3>
+          <h3 class="exercise-name">${f(s)}</h3>
         </div>
 
         <ul class="exercise-info-list">
           <li class="exercise-info-item">
             <span class="info-label">Burned calories:</span>
-            <span class="info-value">${d} / ${l} min</span>
+            <span class="info-value">${o} / ${a} min</span>
           </li>
           <li class="exercise-info-item">
             <span class="info-label">Body part:</span>
-            <span class="info-value">${u(y)}</span>
+            <span class="info-value">${f(n)}</span>
           </li>
           <li class="exercise-info-item">
             <span class="info-label">Target:</span>
-            <span class="info-value">${u(w)}</span>
+            <span class="info-value">${f(y)}</span>
           </li>
         </ul>
       </li>
-      `).join("")}function u(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}const r=document.querySelector(".exercises-list"),m=document.querySelectorAll(".filter-btn"),c=document.getElementById("pagination"),g=document.querySelector(".breadcrumb-current"),f=document.querySelector(".breadcrumb-divider"),n=document.getElementById("search-form"),M=document.querySelector(".filters-nav");let s={filter:"Muscles",categoryName:"",keyword:"",page:1,view:"categories"};M&&r&&T();async function T(){v(s.filter),await o(s.filter,1),k()}function k(){m.forEach(e=>{e.addEventListener("click",async t=>{t.preventDefault();const a=t.currentTarget.dataset.filter;if(t.currentTarget.classList.contains("active")&&s.view==="exercises")return $(a);t.currentTarget.classList.contains("active")||(s.filter=a,s.page=1,s.view="categories",s.categoryName="",v(a),g.textContent="",f.style.display="none",n.classList.add("is-hidden"),await o(s.filter,s.page))})}),r.addEventListener("click",async e=>{if(s.view==="exercises")return;const t=e.target.closest(".filter-item");if(!t)return;const a=t.dataset.name,i=t.dataset.filter;s.view="exercises",s.categoryName=a,s.page=1,f.style.display="inline-block",g.textContent=C(a),n.classList.remove("is-hidden"),await p(i,a,1)}),c==null||c.addEventListener("click",async e=>{if(!e.target.classList.contains("pg-btn"))return;const t=Number(e.target.dataset.page);s.page=t,s.view==="categories"?await o(s.filter,t):await p(s.filter,s.categoryName,t),window.scrollTo({top:r.offsetTop-100,behavior:"smooth"})}),n==null||n.addEventListener("submit",async e=>{e.preventDefault();const a=e.currentTarget.elements.keyword.value.trim().toLowerCase();s.keyword=a,s.page=1,await p(s.filter,s.categoryName,s.page)})}async function $(e){s.filter=e,s.page=1,s.view="categories",s.categoryName="",n.reset(),v(e),g.textContent="",f.style.display="none",n.classList.add("is-hidden"),await o(s.filter,s.page)}async function o(e,t){try{r.innerHTML='<p class="loader">Loading...</p>';const a=await h(e,t);a.results.length>0&&(r.innerHTML=E(a.results),L(a.totalPages,t))}catch(a){console.error(a),r.innerHTML="<p>Error loading categories.</p>"}}async function p(e,t,a){try{r.innerHTML='<p class="loader">Loading exercises...</p>';let i="muscles";e==="Body parts"&&(i="bodypart"),e==="Equipment"&&(i="equipment");const d={[i]:t.toLowerCase(),page:a,limit:10,keyword:s.keyword},l=await x(d);l.results&&l.results.length>0?(r.innerHTML=b(l.results),L(l.totalPages,a)):(r.innerHTML=`
+      `).join("")}function f(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}const c=document.querySelector(".exercises-list"),w=document.querySelectorAll(".filter-btn"),d=document.getElementById("pagination"),m=document.querySelector(".breadcrumb-current"),h=document.querySelector(".breadcrumb-divider"),l=document.getElementById("search-form"),k=document.querySelector(".filters-nav");let r={filter:"Muscles",categoryName:"",keyword:"",page:1,view:"categories"};k&&c&&E();async function E(){C(r.filter),await p(r.filter,1),T()}function T(){w.forEach(e=>{e.addEventListener("click",async t=>{t.preventDefault();const s=t.currentTarget.dataset.filter;if(t.currentTarget.classList.contains("active")&&r.view==="exercises")return $(s);t.currentTarget.classList.contains("active")||(r.filter=s,r.page=1,r.view="categories",r.categoryName="",C(s),m.textContent="",h.style.display="none",l.classList.add("is-hidden"),await p(r.filter,r.page))})}),c.addEventListener("click",async e=>{if(r.view==="exercises")return;const t=e.target.closest(".filter-item");if(!t)return;const s=t.dataset.name,i=t.dataset.filter;r.view="exercises",r.categoryName=s,r.page=1,h.style.display="inline-block",m.textContent=v(s),l.classList.remove("is-hidden"),await g(i,s,1)}),d==null||d.addEventListener("click",async e=>{if(!e.target.classList.contains("pg-btn"))return;const t=Number(e.target.dataset.page);r.page=t,r.view==="categories"?await p(r.filter,t):await g(r.filter,r.categoryName,t),window.scrollTo({top:c.offsetTop-100,behavior:"smooth"})}),l==null||l.addEventListener("submit",async e=>{e.preventDefault();const s=e.currentTarget.elements.keyword.value.trim().toLowerCase();r.keyword=s,r.page=1,await g(r.filter,r.categoryName,r.page)})}async function $(e){r.filter=e,r.page=1,r.view="categories",r.categoryName="",l.reset(),C(e),m.textContent="",h.style.display="none",l.classList.add("is-hidden"),await p(r.filter,r.page)}async function p(e,t){try{c.innerHTML='<p class="loader">Loading...</p>';const s=await x(e,t);s.results.length>0&&(c.innerHTML=B(s.results),L(s.totalPages,t))}catch(s){console.error(s),c.innerHTML="<p>Error loading categories.</p>"}}async function g(e,t,s){try{c.innerHTML='<p class="loader">Loading exercises...</p>';let i="muscles";e==="Body parts"&&(i="bodypart"),e==="Equipment"&&(i="equipment");const o={[i]:t.toLowerCase(),page:s,limit:10,keyword:r.keyword},a=await b(o);a.results&&a.results.length>0?(c.innerHTML=M(a.results),L(a.totalPages,s)):(c.innerHTML=`
         <p class="no-results-message">
           Unfortunately, <strong>no results</strong> were found matching your search, please try again.
-        </p>`,c.innerHTML="")}catch(i){console.error(i),r.innerHTML="<p>Error loading exercises.</p>"}}function L(e,t){if(!c||(c.innerHTML="",e<=1))return;let a="";for(let i=1;i<=e;i++)a+=`<button class="pg-btn ${i===t?"active":""}" data-page="${i}">${i}</button>`;c.innerHTML=a}function v(e){m.forEach(t=>{t.classList.toggle("active",t.dataset.filter===e)})}function E(e){return e.map(t=>`
+        </p>`,d.innerHTML="")}catch(i){console.error(i),c.innerHTML="<p>Error loading exercises.</p>"}}function L(e,t){if(!d||(d.innerHTML="",e<=1))return;const s=[],i=5;t>1&&(s.push(u("<<",1,"arrow")),s.push(u("<",t-1,"arrow")));let o=Math.max(1,t-2),a=Math.min(e,o+i-1);a-o<i-1&&(o=Math.max(1,a-i+1));for(let n=o;n<=a;n++)s.push(u(n,n,n===t?"active":""));if(a<e){if(a<e-1){const n=document.createElement("span");n.textContent="...",n.className="pg-dots",s.push(n)}s.push(u(e,e,""))}t<e&&(s.push(u(">",t+1,"arrow")),s.push(u(">>",e,"arrow"))),s.forEach(n=>d.appendChild(n))}function u(e,t,s){const i=document.createElement("button");return i.className=`pg-btn ${s}`,i.textContent=e,i.dataset.page=t,i}function C(e){w.forEach(t=>{t.classList.toggle("active",t.dataset.filter===e)})}function B(e){return e.map(t=>`
     <li class="filter-item" 
         data-name="${t.name}" 
         data-filter="${t.filter}"
         style="background: linear-gradient(0deg, rgba(17,17,17,0.5), rgba(17,17,17,0.5)), url('${t.imgURL}') center/cover no-repeat;">
         <div class="filter-text">
-            <h3>${C(t.name)}</h3>
+            <h3>${v(t.name)}</h3>
             <p>${t.filter}</p>
         </div>
     </li>
-  `).join("")}function C(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}
-//# sourceMappingURL=filters-DY6DeEZk.js.map
+  `).join("")}function v(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}
+//# sourceMappingURL=filters-ugP2aXu_.js.map
