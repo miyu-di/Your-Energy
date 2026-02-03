@@ -123,10 +123,16 @@
 
 .fav-quote-img {
   min-width: 335px;
-  /* width: 100%; */
-  /* height: auto; */
+  width: 100%;
+  height: auto;
   border-radius: 30px;
   object-fit: cover;
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -141,7 +147,7 @@
 
   .fav-quote-box {
     padding: 40px;
-    min-width: 675px;
+    max-width: 675px;
   }
 
   .fav-min-box {
@@ -150,6 +156,20 @@
 
   .fav-quote-img {
     max-width: 344px;
+  }
+
+  .favorites-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 32px; 
+  }
+
+  .fav-card {
+    width: calc(50% - 8px); 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -160,7 +180,7 @@
   }
 
   .fav-card {
-    max-width: 400px;
+    max-width: 344px;
   }
 
   .fav-info {
@@ -168,7 +188,7 @@
   }
 
   .fav-quote-box {
-    min-width: 494px;
+   max-width: 494px;
   }
 
   .fav-min-box {
@@ -193,4 +213,5 @@
     text-align: center;
     width: 554px;
   }
+
 }
