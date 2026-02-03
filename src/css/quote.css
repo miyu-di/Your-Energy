@@ -117,8 +117,6 @@
 
 .quote-img {
   min-width: 335px;
-  /* width: 100%; */
-  /* height: auto; */
   border-radius: 30px;
   object-fit: cover;
 }
@@ -142,8 +140,8 @@
   .quote-box,
   .min-box {
     padding: 40px;
-    min-height: 250px;
-    min-width: 370px;
+    max-height: 250px;
+    max-width: 370px;
   }
 
   .quote-img {
@@ -162,12 +160,11 @@
   .quote-box,
   .min-box,
   .quote-img {
-    width: 444px;
+    max-width: 444px;
     height: auto;
   }
 
   .quote-img {
     height: 242px;
-    /* width: 444px; */
   }
 }

@@ -202,6 +202,10 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .footer-main-wrapper {
+    gap: 20px;
+  }
+
   .footer-first-half-wrapper {
     margin-right: 156px;
   }

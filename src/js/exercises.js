@@ -1,3 +1,5 @@
+import iconSprite from '../images/icons.svg';
+
 export function createExerciseMarkup(exercises) {
   return exercises
     .map(({ _id, name, rating, burnedCalories, time, bodyPart, target }) => {
@@ -9,7 +11,7 @@ export function createExerciseMarkup(exercises) {
           <div class="exercise-rating-container">
             <span class="exercise-rating">${Math.round(rating).toFixed(1)}</span>
             <svg class="exercise-star-icon" width="13" height="13">
-              <use href="./images/icons.svg#star"></use>
+              <use href="${iconSprite}#star"></use>
             </svg>
           </div>
 
@@ -51,7 +53,6 @@ export function createExerciseMarkup(exercises) {
     })
     .join('');
 }
-
 
 function capitalize(str) {
   if (!str) return '';

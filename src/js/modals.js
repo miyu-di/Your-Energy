@@ -1,4 +1,5 @@
 import { getExerciseById, patchRating } from './api.js';
+import iconSprite from '../images/icons.svg';
 
 const modalBackdrop = document.querySelector('#exercise-modal');
 const exercisesList = document.querySelector('.exercises-list'); 
@@ -56,11 +57,11 @@ function initFavoriteBtn(data) {
 function updateFavBtnState(btn, isFav) {
   if (isFav) {
     btn.innerHTML = `Remove from favorites <svg class="modal-heart" width="20" height="20">
-                <use href="./images/icons.svg#heart"></use>
+                <use href="${iconSprite}#heart"></use>
               </svg>`;
   } else {
     btn.innerHTML = `Add to favorites <svg class="modal-heart" width="20" height="20">
-                <use href="./images/icons.svg#heart"></use>
+                <use href="${iconSprite}#heart"></use>
               </svg>`;
   }
 }
@@ -152,7 +153,7 @@ function createModalMarkup(data) {
   return `
     <div class="modal-content">
       <button type="button" class="modal-close-btn" id="modal-close">
-        <svg class="modal-close-icon" width="28" height="28"><use href="./images/icons.svg#cross"></use></svg>
+        <svg class="modal-close-icon" width="28" height="28"><use href="${iconSprite}#cross"></use></svg>
       </button>
       <div class="modal-exercise-card">
         <div class="modal-gif-wrapper">
@@ -185,7 +186,7 @@ function createRatingMarkup(exerciseId) {
   return `
     <div class="modal-content rating-modal">
       <button type="button" class="modal-close-btn" id="modal-close">
-        <svg class="modal-close-icon" width="28" height="28"><use href="./images/icons.svg#cross"></use></svg>
+        <svg class="modal-close-icon" width="28" height="28"><use href="${iconSprite}#cross"></use></svg>
       </button>
       <p class="rating-label">Rating</p>
       <div class="rating-value-container">
