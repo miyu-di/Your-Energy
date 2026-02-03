@@ -6,6 +6,7 @@ h5,
 h6,
 p {
   margin: 0;
+  line: 2px;
 }
 
 p:last-child {
