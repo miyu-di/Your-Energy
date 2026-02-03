@@ -1,4 +1,4 @@
-import{openModal as g}from"./modals-CjmaroFg.js";import"./api-CA10J7K2.js";import"./vendor-D1yz-ZLW.js";const d=document.querySelector(".quote-text"),f=document.querySelector(".quote-author"),s=document.querySelector(".favorites-list"),o=document.querySelector(".favorites-empty-message"),n="favorites",v="quoteData";C();function C(){h(),r(),window.addEventListener("favorites-updated",r)}async function h(){const e=new Date().toDateString(),t=JSON.parse(localStorage.getItem(v));if(t&&t.date===e)u(t);else try{const a={author:"Stan Smith",quote:"I've got a plan. I'm going to work out until I'm so tired I can't be sad.",date:e};localStorage.setItem(v,JSON.stringify(a)),u(a)}catch(a){console.error("Quote fetch error",a)}}function u({author:e,quote:t}){d&&(d.textContent=t),f&&(f.textContent=e)}function r(){if(!s)return;const e=JSON.parse(localStorage.getItem(n))||[];e.length===0?(s.innerHTML="",o&&o.classList.remove("is-hidden")):(o&&o.classList.add("is-hidden"),s.innerHTML=m(e))}s&&s.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const a=t.dataset.id;if(t.classList.contains("fav-trash-btn")&&L(a),t.classList.contains("fav-start-btn")){const c=(JSON.parse(localStorage.getItem(n))||[]).find(p=>p._id===a);c&&g(c)}});function L(e){const a=(JSON.parse(localStorage.getItem(n))||[]).filter(l=>l._id!==e);localStorage.setItem(n,JSON.stringify(a)),r()}function m(e){return e.map(t=>`
+import{openModal as C}from"./modals-CjMwTBMR.js";import{i as g}from"./icons-mdIB9KqP.js";import"./api-CA10J7K2.js";import"./vendor-D1yz-ZLW.js";const d=document.querySelector(".quote-text"),f=document.querySelector(".quote-author"),s=document.querySelector(".favorites-list"),o=document.querySelector(".favorites-empty-message"),i="favorites",v="quoteData";h();function h(){L(),r(),window.addEventListener("favorites-updated",r)}async function L(){const e=new Date().toDateString(),t=JSON.parse(localStorage.getItem(v));if(t&&t.date===e)u(t);else try{const a={author:"Stan Smith",quote:"I've got a plan. I'm going to work out until I'm so tired I can't be sad.",date:e};localStorage.setItem(v,JSON.stringify(a)),u(a)}catch(a){console.error("Quote fetch error",a)}}function u({author:e,quote:t}){d&&(d.textContent=t),f&&(f.textContent=e)}function r(){if(!s)return;const e=JSON.parse(localStorage.getItem(i))||[];e.length===0?(s.innerHTML="",o&&o.classList.remove("is-hidden")):(o&&o.classList.add("is-hidden"),s.innerHTML=S(e))}s&&s.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const a=t.dataset.id;if(t.classList.contains("fav-trash-btn")&&m(a),t.classList.contains("fav-start-btn")){const c=(JSON.parse(localStorage.getItem(i))||[]).find(p=>p._id===a);c&&C(c)}});function m(e){const a=(JSON.parse(localStorage.getItem(i))||[]).filter(l=>l._id!==e);localStorage.setItem(i,JSON.stringify(a)),r()}function S(e){return e.map(t=>`
     <li class="fav-card">
       <div class="fav-header">
       <div class="fav-top">
@@ -6,7 +6,7 @@ import{openModal as g}from"./modals-CjmaroFg.js";import"./api-CA10J7K2.js";impor
 
          <button class="fav-trash-btn" data-id="${t._id}">
             <svg class="fav-icon-trash" width="16" height="16">
-              <use href="./images/icons.svg#trash"></use>
+              <use href="${g}#trash"></use>
             </svg>
          </button>
       </div>
@@ -27,7 +27,7 @@ import{openModal as g}from"./modals-CjmaroFg.js";import"./api-CA10J7K2.js";impor
                 <path d="M15.8448 7.30102C16.7564 7.30102 17.4954 6.56206 17.4954 5.65051C17.4954 4.73896 16.7564 4 15.8448 4C14.9333 4 14.1943 4.73896 14.1943 5.65051C14.1943 6.56206 14.9333 7.30102 15.8448 7.30102Z" fill="#F4F4F4" />
             </svg>
          </div>
-         <h3 class="fav-name">${i(t.name)}</h3>
+         <h3 class="fav-name">${n(t.name)}</h3>
       </div>
       <ul class="fav-info">
          <li class="fav-text">
@@ -36,13 +36,13 @@ import{openModal as g}from"./modals-CjmaroFg.js";import"./api-CA10J7K2.js";impor
          </li>
          <li class="fav-text">
             <span class="info-label">Body part:</span> 
-            <span class="info-value">${i(t.bodyPart)}</span> 
+            <span class="info-value">${n(t.bodyPart)}</span> 
          </li>
          <li class="fav-text">
             <span class="info-label">Target:</span> 
-            <span class="info-value">${i(t.target)}</span> 
+            <span class="info-value">${n(t.target)}</span> 
          </li>
       </ul>
     </li>
-  `).join("")}function i(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}
-//# sourceMappingURL=favorites-yJWDjZDk.js.map
+  `).join("")}function n(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}
+//# sourceMappingURL=favorites-Cgpqdq2M.js.map
