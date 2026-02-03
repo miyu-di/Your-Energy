@@ -251,6 +251,52 @@ letter-spacing: -0.02em;
   justify-content: center;
 }
 
+
+/* Контейнер пагінації */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  margin-bottom: 40px;
+}
+
+/* Базовий стиль кнопки пагінації */
+.pg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  
+  background: transparent;
+  border: 1px solid transparent; /* Рамка прозора за замовчуванням */
+  border-radius: 50%; /* Робимо ідеальне коло */
+  
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgba(36, 36, 36, 0.4); /* Сірий колір для неактивних */
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Стиль для активної сторінки */
+.pg-btn.active {
+  color: #242424; /* Чорний колір тексту */
+  border-color: #242424; /* Чорне коло навколо */
+}
+
+.pg-btn:not(.active):hover {
+  color: #242424;
+  background-color: rgba(36, 36, 36, 0.05);
+}
+
 @media screen and (min-width: 768px) {
   .exercises-list {
     gap: 32px 16px;

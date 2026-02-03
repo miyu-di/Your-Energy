@@ -176,11 +176,54 @@ function renderPagination(totalPages, activePage) {
   paginationContainer.innerHTML = '';
   if (totalPages <= 1) return;
 
-  let html = '';
-  for (let i = 1; i <= totalPages; i++) {
-    html += `<button class="pg-btn ${i === activePage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+  const buttons = [];
+  const maxVisibleButtons = 5; // Скільки цифр показувати одночасно
+
+  // Стрілка "Назад" (<< та <)
+  if (activePage > 1) {
+    buttons.push(createPageBtn('<<', 1, 'arrow'));
+    buttons.push(createPageBtn('<', activePage - 1, 'arrow'));
   }
-  paginationContainer.innerHTML = html;
+
+  // Логіка цифр з трьома крапками
+  let startPage = Math.max(1, activePage - 2);
+  let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+
+  if (endPage - startPage < maxVisibleButtons - 1) {
+    startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    buttons.push(createPageBtn(i, i, i === activePage ? 'active' : ''));
+  }
+
+  // Додаємо три крапки, якщо до кінця ще далеко
+  if (endPage < totalPages) {
+    if (endPage < totalPages - 1) {
+      const dots = document.createElement('span');
+      dots.textContent = '...';
+      dots.className = 'pg-dots';
+      buttons.push(dots);
+    }
+    buttons.push(createPageBtn(totalPages, totalPages, ''));
+  }
+
+  // Стрілка "Вперед" (> та >>)
+  if (activePage < totalPages) {
+    buttons.push(createPageBtn('>', activePage + 1, 'arrow'));
+    buttons.push(createPageBtn('>>', totalPages, 'arrow'));
+  }
+
+  buttons.forEach(btn => paginationContainer.appendChild(btn));
+}
+
+// Допоміжна функція для створення кнопки
+function createPageBtn(text, page, className) {
+  const btn = document.createElement('button');
+  btn.className = `pg-btn ${className}`;
+  btn.textContent = text;
+  btn.dataset.page = page;
+  return btn;
 }
 
 function setActiveButton(filterName) {
