@@ -9,7 +9,7 @@ export function createExerciseMarkup(exercises) {
           <div class="exercise-rating-container">
             <span class="exercise-rating">${Math.round(rating).toFixed(1)}</span>
             <svg class="exercise-star-icon" width="13" height="13">
-              <use href="/images/icons.svg#star"></use>
+              <use href="./images/icons.svg#star"></use>
             </svg>
           </div>
 

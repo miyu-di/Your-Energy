@@ -1,7 +1,7 @@
 <section class="hero container">
   <h1 class="hero-title">
     <svg width="59" height="59">
-        <use href="/images/icons.svg#icon-30"></use>
+      <use href="/images/icons.svg#icon-30"></use>
     </svg>
     <span class="line1">Get <i>Body</i> in</span><br />
     <span class="line2">shape, Stay healthy</span>
@@ -11,12 +11,27 @@
     comprehensive fitness and nutrition support.
   </p>
   <div class="hero-main-image">
-    <img srcset="
-        ./images/hero/hero.webp 1x,
-        ./images/hero/hero-2x.webp 2x
-      " src="./images/hero/hero.webp"
-      width="1737" alt="women-sportswear-working-out-outdoors"
-      aria-label="women-sportswear-working-out-outdoors" fetchpriority="high" />
+    <picture>
+      <source
+        srcset="
+          ./images/hero/hero-mobile.webp    1x,
+          ./images/hero/hero-mobile-2x.webp 2x
+        "
+        media="(max-width: 767px)"
+      />
+      <source
+        srcset="./images/hero/hero.webp 1x, ./images/hero/hero-2x.webp 2x"
+        media="(min-width: 768px)"
+      />
+
+      <img
+        src="./images/hero/hero.webp"
+        alt="women-sportswear-working-out-outdoors"
+        width="335"
+        height="400"
+        fetchpriority="high"
+      />
+    </picture>
   </div>
   <div class="tags-container">
     <span class="tag">#Sport</span>
@@ -25,9 +40,12 @@
     <span class="tag">#Diet</span>
   </div>
   <div class="hero-secondary-image">
-    <img srcset="
-        ./images/hero/icon-img.png 1x,
-        ./images/hero/icon-img-2x.png 2x
-      " src="./images/hero/icon-img.png" alt="young-women-doing-fitness-outdoors-together" />
+    <img
+      srcset="./images/hero/icon-img.png 1x, ./images/hero/icon-img-2x.png 2x"
+      src="./images/hero/icon-img.png"
+      alt="young-women-doing-fitness-outdoors-together"
+      width="150"
+      height="150"
+    />
   </div>
 </section>

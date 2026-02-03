@@ -100,7 +100,7 @@ function createFavListMarkup(data) {
 
          <button class="fav-trash-btn" data-id="${item._id}">
             <svg class="fav-icon-trash" width="16" height="16">
-              <use href="/images/icons.svg#trash"></use>
+              <use href="./images/icons.svg#trash"></use>
             </svg>
          </button>
       </div>
