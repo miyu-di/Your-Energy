@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your-Energy</title>
     <link rel="stylesheet" href="./css/styles.css" />
@@ -15,11 +16,12 @@
       <div class="container">
         <h1 class="main-title">Favorites</h1>
 
-        <div class="quote-of-the-container">
-          <div class="quote-box">
+        <div class="fav-container">
+        <div class="fav-quote-container">
+          <div class="fav-quote-box">
             <svg
-              width="42"
-              height="42"
+              width="32"
+              height="32"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +43,7 @@
               />
             </svg>
 
-            <div>
+            <div class="fav-quote-content">
               <div class="quote-header">
                 <h3 class="quote-title">Quote of the day</h3>
                 <svg class="quote-inverted-commas-svg" width="20" height="20">
@@ -57,41 +59,47 @@
             </div>
           </div>
 
-          <div>
-            <img
-              class="quote-img"
-              srcset="
-                ./images/favorite/women-working-out-mobile-1x.png   335w,
-                ./images/favorite/women-working-out-mobile-2x.png   670w,
-                ./images/favorite/women-working-out-tablet1x.png    704w,
-                ./images/favorite/women-working-out-tablet-2x.png  1472w,
-                ./images/favorite/women-working-out-desktop-1x.png  736w,
-                ./images/favorite/women-working-out-desktop-2x.png 1408w
-              "
-              src="../src/images/favorite/women-working-out-desktop1x.png"
-              alt="two girls"
-            />
-          </div>
+          <div class="daily-container">
 
-          <div class="min-box">
-            <div class="min-line">
-              <div class="min-icon-wrap">
-                <svg class="min-icon" width="20" height="20">
+          <div class="fav-min-box">
+            <div class="fav-min-line">
+                <svg class="fav-min-icon" width="20" height="20">
                   <use
                     class="dumbbell-icon"
                     href="../images/icons.svg#dumbbell"
                   ></use>
                 </svg>
-              </div>
-              <div class="min-info">
-                <h3 class="min-header">110 min</h3>
+              <div class="fav-min-info">
+                <h3 class="fav-min-header">110 min</h3>
                 <p class="min-title">Daily norm of sports</p>
               </div>
             </div>
           </div>
+
+              <div>
+                <img
+                  class="quote-img"
+                  srcset="
+                    ./images/favorite/women-working-out-mobile1x.png   335w,
+                    ./images/favorite/women-working-out-mobile2x.png   670w,
+                    ./images/favorite/women-working-out-tablet1x.png    704w,
+                    ./images/favorite/women-working-out-tablet2x.png  1472w,
+                    ./images/favorite/women-working-out-desktop1x.png  736w,
+                    ./images/favorite/women-working-out-desktop2x.png 1408w
+                  "
+                  src="./images/favorite/women-working-out-desktop1x.png"
+                  alt="a"
+                />
+              </div>
+          </div>
+          
         </div>
 
-        <load src="./partials/fav-list.html" />
+        <div>
+          <load src="./partials/fav-list.html" />
+        </div>
+        </div>
+        
       </div>
     </main>
     <div class="modal-backdrop is-hidden" id="exercise-modal"></div>

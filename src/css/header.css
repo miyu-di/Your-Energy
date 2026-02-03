@@ -44,22 +44,26 @@
   .header-nav-list {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 8px 16px;
-    width: 211px;
+    gap: 4px; 
+    padding: 4px; 
+    width: auto;  
     border-radius: 60px;
     background: #242424;
   }
 
   .header-nav-link {
-    color: #F4F4F4;
-  }
-  .header-nav-link-active {
     display: flex;
-    padding: 6px 26px;
+    padding: 10px 24px;
     justify-content: center;
     align-items: center;
     border-radius: 30px;
+    color: #F4F4F4;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .header-nav-link-active {
     background-color: #F4F4F4;
     color: #242424;
   }
