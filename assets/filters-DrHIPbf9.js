@@ -6,7 +6,7 @@ import{getFilters as x,getExercises as b}from"./api-CA10J7K2.js";import"./vendor
           <div class="exercise-rating-container">
             <span class="exercise-rating">${Math.round(i).toFixed(1)}</span>
             <svg class="exercise-star-icon" width="13" height="13">
-              <use href="../images/icons.svg#star"></use>
+              <use href="/images/icons.svg#star"></use>
             </svg>
           </div>
 
@@ -58,4 +58,4 @@ import{getFilters as x,getExercises as b}from"./api-CA10J7K2.js";import"./vendor
         </div>
     </li>
   `).join("")}function v(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}
-//# sourceMappingURL=filters-ugP2aXu_.js.map
+//# sourceMappingURL=filters-DrHIPbf9.js.map
