@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/Your-Energy/assets/favicon-Cpwlvc8J.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your-Energy</title>
-    <script type="module" crossorigin src="/Your-Energy/assets/main-Bwuf5U9h.js"></script>
-    <link rel="stylesheet" crossorigin href="/Your-Energy/assets/main-BJEqTHvo.css">
+    <script type="module" crossorigin src="/Your-Energy/assets/main-BMbZ03WO.js"></script>
+    <link rel="stylesheet" crossorigin href="/Your-Energy/assets/main-DsDmpfXN.css">
   </head>
   <body>
     <div class="mobile-menu js-menu-container" id="mobile-menu">
@@ -21,7 +22,6 @@
             <use href="../images/icons.svg#cross"></use>
         </svg>  
       </button>
-        
     </div>
     
     <nav class="mobile-menu-nav">
@@ -70,6 +70,7 @@
         </li>
       </ul>
     </div>
+
   </div>
 </div>
     <header class="header">
@@ -83,10 +84,10 @@
     <nav class="header-nav">
       <ul class="header-nav-list">
         <li class="header-nav-item">
-          <a class="header-nav-link header-nav-link-active" href="../index.html">Home</a>
+          <a class="header-nav-link" href="../index.html" id="Home">Home</a>
         </li>
         <li class="header-nav-item">
-          <a class="header-nav-link" href="../favorites.html">Favorites</a>
+          <a class="header-nav-link" href="../favorites.html" id="Favorites">Favorites</a>
         </li>
       </ul>
     </nav>
@@ -135,11 +136,12 @@
       <div class="container">
         <h1 class="main-title">Favorites</h1>
 
-        <div class="quote-of-the-container">
-          <div class="quote-box">
+        <div class="fav-container">
+        <div class="fav-quote-container">
+          <div class="fav-quote-box">
             <svg
-              width="42"
-              height="42"
+              width="32"
+              height="32"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +163,7 @@
               />
             </svg>
 
-            <div>
+            <div class="fav-quote-content">
               <div class="quote-header">
                 <h3 class="quote-title">Quote of the day</h3>
                 <svg class="quote-inverted-commas-svg" width="20" height="20">
@@ -177,34 +179,37 @@
             </div>
           </div>
 
-          <div>
-            <img
-              class="quote-img"
-              srcset="./images/favorite/women-working-out-mobile-1x.png 335w, ./images/favorite/women-working-out-mobile-2x.png 670w, /Your-Energy/assets/women-working-out-tablet1x-BSZGA83e.png 704w, ./images/favorite/women-working-out-tablet-2x.png 1472w, ./images/favorite/women-working-out-desktop-1x.png 736w, ./images/favorite/women-working-out-desktop-2x.png 1408w"
-              src="/Your-Energy/assets/women-working-out-desktop1x-CYTc1zLU.png"
-              alt="two girls"
-            />
-          </div>
+          <div class="daily-container">
 
-          <div class="min-box">
-            <div class="min-line">
-              <div class="min-icon-wrap">
-                <svg class="min-icon" width="20" height="20">
+          <div class="fav-min-box">
+            <div class="fav-min-line">
+                <svg class="fav-min-icon" width="20" height="20">
                   <use
                     class="dumbbell-icon"
                     href="../images/icons.svg#dumbbell"
                   ></use>
                 </svg>
-              </div>
-              <div class="min-info">
-                <h3 class="min-header">110 min</h3>
+              <div class="fav-min-info">
+                <h3 class="fav-min-header">110 min</h3>
                 <p class="min-title">Daily norm of sports</p>
               </div>
             </div>
           </div>
+
+              <div>
+                <img
+                  class="quote-img"
+                  srcset="/Your-Energy/assets/women-working-out-mobile1x-CgymvGEC.png 335w, /Your-Energy/assets/women-working-out-mobile2x-kW_emAZd.png 670w, /Your-Energy/assets/women-working-out-tablet1x-BSZGA83e.png 704w, /Your-Energy/assets/women-working-out-tablet2x-Dmu8p35d.png 1472w, /Your-Energy/assets/women-working-out-desktop1x-CYTc1zLU.png 736w, /Your-Energy/assets/women-working-out-desktop2x-YYu6f-G9.png 1408w"
+                  src="/Your-Energy/assets/women-working-out-desktop1x-CYTc1zLU.png"
+                  alt="a"
+                />
+              </div>
+          </div>
+          
         </div>
 
-        <section class="favorites-section">
+        <div>
+          <section class="favorites-section">
   <ul class="favorites-list"></ul>
 
   <div class="favorites-empty-message is-hidden">
@@ -216,6 +221,9 @@
   </div>
 </section>
 
+        </div>
+        </div>
+        
       </div>
     </main>
     <div class="modal-backdrop is-hidden" id="exercise-modal"></div>
