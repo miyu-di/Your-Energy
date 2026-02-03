@@ -1,4 +1,4 @@
-import{openModal as g}from"./modals-Z30W6H3v.js";import"./api-CA10J7K2.js";import"./vendor-D1yz-ZLW.js";const d=document.querySelector(".quote-text"),f=document.querySelector(".quote-author"),s=document.querySelector(".favorites-list"),o=document.querySelector(".favorites-empty-message"),n="favorites",v="quoteData";C();function C(){h(),r(),window.addEventListener("favorites-updated",r)}async function h(){const e=new Date().toDateString(),t=JSON.parse(localStorage.getItem(v));if(t&&t.date===e)u(t);else try{const a={author:"Stan Smith",quote:"I've got a plan. I'm going to work out until I'm so tired I can't be sad.",date:e};localStorage.setItem(v,JSON.stringify(a)),u(a)}catch(a){console.error("Quote fetch error",a)}}function u({author:e,quote:t}){d&&(d.textContent=t),f&&(f.textContent=e)}function r(){if(!s)return;const e=JSON.parse(localStorage.getItem(n))||[];e.length===0?(s.innerHTML="",o&&o.classList.remove("is-hidden")):(o&&o.classList.add("is-hidden"),s.innerHTML=m(e))}s&&s.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const a=t.dataset.id;if(t.classList.contains("fav-trash-btn")&&L(a),t.classList.contains("fav-start-btn")){const c=(JSON.parse(localStorage.getItem(n))||[]).find(p=>p._id===a);c&&g(c)}});function L(e){const a=(JSON.parse(localStorage.getItem(n))||[]).filter(l=>l._id!==e);localStorage.setItem(n,JSON.stringify(a)),r()}function m(e){return e.map(t=>`
+import{openModal as g}from"./modals-CjmaroFg.js";import"./api-CA10J7K2.js";import"./vendor-D1yz-ZLW.js";const d=document.querySelector(".quote-text"),f=document.querySelector(".quote-author"),s=document.querySelector(".favorites-list"),o=document.querySelector(".favorites-empty-message"),n="favorites",v="quoteData";C();function C(){h(),r(),window.addEventListener("favorites-updated",r)}async function h(){const e=new Date().toDateString(),t=JSON.parse(localStorage.getItem(v));if(t&&t.date===e)u(t);else try{const a={author:"Stan Smith",quote:"I've got a plan. I'm going to work out until I'm so tired I can't be sad.",date:e};localStorage.setItem(v,JSON.stringify(a)),u(a)}catch(a){console.error("Quote fetch error",a)}}function u({author:e,quote:t}){d&&(d.textContent=t),f&&(f.textContent=e)}function r(){if(!s)return;const e=JSON.parse(localStorage.getItem(n))||[];e.length===0?(s.innerHTML="",o&&o.classList.remove("is-hidden")):(o&&o.classList.add("is-hidden"),s.innerHTML=m(e))}s&&s.addEventListener("click",e=>{const t=e.target.closest("button");if(!t)return;const a=t.dataset.id;if(t.classList.contains("fav-trash-btn")&&L(a),t.classList.contains("fav-start-btn")){const c=(JSON.parse(localStorage.getItem(n))||[]).find(p=>p._id===a);c&&g(c)}});function L(e){const a=(JSON.parse(localStorage.getItem(n))||[]).filter(l=>l._id!==e);localStorage.setItem(n,JSON.stringify(a)),r()}function m(e){return e.map(t=>`
     <li class="fav-card">
       <div class="fav-header">
       <div class="fav-top">
@@ -6,7 +6,7 @@ import{openModal as g}from"./modals-Z30W6H3v.js";import"./api-CA10J7K2.js";impor
 
          <button class="fav-trash-btn" data-id="${t._id}">
             <svg class="fav-icon-trash" width="16" height="16">
-              <use href="/images/icons.svg#trash"></use>
+              <use href="./images/icons.svg#trash"></use>
             </svg>
          </button>
       </div>
@@ -45,4 +45,4 @@ import{openModal as g}from"./modals-Z30W6H3v.js";import"./api-CA10J7K2.js";impor
       </ul>
     </li>
   `).join("")}function i(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}
-//# sourceMappingURL=favorites-BlmxAKG-.js.map
+//# sourceMappingURL=favorites-yJWDjZDk.js.map
