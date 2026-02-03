@@ -1,10 +1,9 @@
 import { getExerciseById, patchRating } from './api.js';
 
 const modalBackdrop = document.querySelector('#exercise-modal');
-const exercisesList = document.querySelector('.exercises-list'); // Отримуємо список
+const exercisesList = document.querySelector('.exercises-list'); 
 let currentExerciseData = null;
 
-// 1. СЛУХАЧ НА КНОПКУ "START" В СПИСКУ (ТІЛЬКИ ЯКЩО СПИСОК ІСНУЄ)
 if (exercisesList) {
   exercisesList.addEventListener('click', async e => {
     const startBtn = e.target.closest('.exercise-start-btn');
@@ -19,7 +18,6 @@ if (exercisesList) {
   });
 }
 
-// 2. ВІДКРИТТЯ МОДАЛКИ ВПРАВИ (Export, щоб використати в favorites.js)
 export function openModal(data) {
   currentExerciseData = data;
   modalBackdrop.innerHTML = createModalMarkup(data);
@@ -27,17 +25,13 @@ export function openModal(data) {
   document.body.classList.add('no-scroll');
 
   window.addEventListener('keydown', handleEsc);
-
-  // Ініціалізація кнопки Favorites
   initFavoriteBtn(data);
 }
 
-// Функція для логіки кнопки Favorites всередині модалки
 function initFavoriteBtn(data) {
   const favBtn = document.querySelector('.btn-favorite');
   if (!favBtn) return;
 
-  // Перевіряємо, чи є вже в LS
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   const isFavorite = favorites.some(item => item._id === data._id);
 
@@ -48,11 +42,9 @@ function initFavoriteBtn(data) {
     const index = currentFavs.findIndex(item => item._id === data._id);
 
     if (index !== -1) {
-      // Видаляємо
       currentFavs.splice(index, 1);
       updateFavBtnState(favBtn, false);
     } else {
-      // Додаємо
       currentFavs.push(data);
       updateFavBtnState(favBtn, true);
     }
@@ -63,27 +55,23 @@ function initFavoriteBtn(data) {
 
 function updateFavBtnState(btn, isFav) {
   if (isFav) {
-    btn.innerHTML = 'Remove from favorites <span class="heart-active">❤</span>';
-    // Тут можна додати клас для стилізації
+    btn.innerHTML = `Remove from favorites <svg class="modal-heart" width="20" height="20">
+                <use href="../images/icons.svg#heart"></use>
+              </svg>`;
   } else {
-    btn.innerHTML = 'Add to favorites <span class="heart-icon">❤</span>';
+    btn.innerHTML = `Add to favorites <svg class="modal-heart" width="20" height="20">
+                <use href="../images/icons.svg#heart"></use>
+              </svg>`;
   }
 }
 
-// 3. ЗАКРИТТЯ
 function closeModal() {
   modalBackdrop.classList.add('is-hidden');
   modalBackdrop.innerHTML = '';
   document.body.classList.remove('no-scroll');
   window.removeEventListener('keydown', handleEsc);
 
-  // Якщо ми на сторінці Favorites, оновлюємо список після закриття модалки
-  // (на випадок якщо користувач видалив вправу через модалку)
   if (window.location.pathname.includes('favorite')) {
-    // Тут можна викликати глобальну подію або функцію рендеру,
-    // якщо favorites.js слухає зміни LS.
-    // Простий варіант - перезавантажити сторінку,
-    // але краще dispatchedEvent.
     const event = new Event('favorites-updated');
     window.dispatchEvent(event);
   }
@@ -93,7 +81,6 @@ function handleEsc(e) {
   if (e.code === 'Escape') closeModal();
 }
 
-// Закриття по кліку на бекдроп або хрестик
 if (modalBackdrop) {
   modalBackdrop.addEventListener('click', e => {
     if (e.target === modalBackdrop || e.target.closest('#modal-close')) {
@@ -102,7 +89,6 @@ if (modalBackdrop) {
   });
 }
 
-// 4. ЛОГІКА ПЕРЕХОДУ НА РЕЙТИНГ
 document.addEventListener('click', e => {
   if (e.target.classList.contains('btn-rating')) {
     modalBackdrop.innerHTML = createRatingMarkup(currentExerciseData._id);
@@ -149,7 +135,6 @@ function initRatingLogic() {
   };
 }
 
-// --- РОЗМІТКА ---
 function createModalMarkup(data) {
   const {
     gifUrl,

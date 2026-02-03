@@ -1,18 +1,14 @@
-.quote-section {
-  padding: 20px;
-}
-
 .quote-of-the-container {
   padding: 0;
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column; */
   gap: 20px;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .quote-box {
   display: flex;
-  /* width: 100%; */
+  width: 335px;
   border-radius: 30px;
   background-color: #242424;
   padding: 20px;
@@ -56,11 +52,11 @@
   color: #f4f4f4;
 }
 
+
 /* Styles for 110 min card */
 
 .min-box {
-  height: 100%;
-  width: 100%;
+  width: 335px;
   border-radius: 20px;
   background-color: #ffffff;
   padding: 20px;
@@ -103,7 +99,6 @@
 .min-title {
   font-weight: 400;
   font-size: 14px;
-
   line-height: 18px;
   color: rgba(36, 36, 36, 0.6);
 }
@@ -112,7 +107,6 @@
   font-weight: 400;
   font-size: 14px;
   padding-left: 50px;
-
   line-height: 18px;
   color: #242424;
   display: -webkit-box;
@@ -122,59 +116,57 @@
   text-overflow: ellipsis;
 }
 
-
 .quote-img {
-  width: 100%;
-  height: auto;
+  min-width: 335px;
+  /* width: 100%; */
+  /* height: auto; */
   border-radius: 30px;
   object-fit: cover;
 }
 
-/* --- Mobile --- */
 .quote-of-the-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* --- Tablet (768px) --- */
 @media screen and (min-width: 768px) {
   .quote-of-the-container {
-    flex-direction: row; /* Текст і картинка в ряд */
-    flex-wrap: wrap;     /* Дозволяємо перенос */
-    height: 480px;       /* Фіксуємо висоту для всього блоку */
+    flex-direction: row; 
+    flex-wrap: wrap;   
+    height: 480px;    
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 100px;
   }
 
-  /* Щоб картинка була справа на всю висоту */
-  .quote-img {
-    /* order: 2; */
-    /* width: calc(50% - 10px); */
-    height: 100%;
-    /* object-fit: cover; */
-  }
-
-  /* Блоки зліва */
   .quote-box, .min-box {
-    /* order: 1; */
-    width: calc(50% - 10px);
-    height: calc(50% - 10px); 
+    padding: 40px;
+    min-height: 250px;
+    min-width: 370px;
   }
+
+  .quote-img {
+    min-width: 288px;
+    height: 250px;
+  }
+
 }
 
-/* --- Desktop (1440px) --- */
 @media screen and (min-width: 1440px) {
   .quote-of-the-container {
-    flex-direction: column; /* Знову стовпчиком для вузької бічної панелі */
+    flex-direction: column; 
     height: auto;
-    width: 335px;
+    width: auto;
   }
 
   .quote-box, .min-box, .quote-img {
-    width: 100%;
+    width: 444px;
     height: auto;
   }
 
   .quote-img {
     height: 242px;
+    /* width: 444px; */
   }
 }

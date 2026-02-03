@@ -95,13 +95,16 @@ function createFavListMarkup(data) {
       item => `
     <li class="fav-card">
       <div class="fav-header">
-         <span class="fav-badge">WORKOUT</span>
+      <div class="fav-top">
+        <span class="fav-badge">WORKOUT</span>
 
          <button class="fav-trash-btn" data-id="${item._id}">
             <svg class="fav-icon-trash" width="16" height="16">
               <use href="../images/icons.svg#trash"></use>
             </svg>
          </button>
+      </div>
+         
          <button class="fav-start-btn" data-id="${item._id}">
             Start
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

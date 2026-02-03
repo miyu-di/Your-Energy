@@ -17,8 +17,6 @@ let appState = {
   view: 'categories',
 };
 
-// --- ВИПРАВЛЕННЯ: ПЕРЕВІРКА ---
-// Якщо на сторінці немає навігації фільтрів (значить ми на Favorites), зупиняємо виконання.
 if (filtersNav && listContainer) {
   init();
 }
@@ -26,7 +24,7 @@ if (filtersNav && listContainer) {
 async function init() {
   setActiveButton(appState.filter);
   await handleFilterSelect(appState.filter, 1);
-  addListeners(); // Виніс слухачі в окрему функцію для чистоти
+  addListeners(); 
 }
 
 function addListeners() {
@@ -177,15 +175,13 @@ function renderPagination(totalPages, activePage) {
   if (totalPages <= 1) return;
 
   const buttons = [];
-  const maxVisibleButtons = 5; // Скільки цифр показувати одночасно
+  const maxVisibleButtons = 5; 
 
-  // Стрілка "Назад" (<< та <)
   if (activePage > 1) {
     buttons.push(createPageBtn('<<', 1, 'arrow'));
     buttons.push(createPageBtn('<', activePage - 1, 'arrow'));
   }
 
-  // Логіка цифр з трьома крапками
   let startPage = Math.max(1, activePage - 2);
   let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
 
@@ -197,7 +193,6 @@ function renderPagination(totalPages, activePage) {
     buttons.push(createPageBtn(i, i, i === activePage ? 'active' : ''));
   }
 
-  // Додаємо три крапки, якщо до кінця ще далеко
   if (endPage < totalPages) {
     if (endPage < totalPages - 1) {
       const dots = document.createElement('span');
@@ -208,7 +203,6 @@ function renderPagination(totalPages, activePage) {
     buttons.push(createPageBtn(totalPages, totalPages, ''));
   }
 
-  // Стрілка "Вперед" (> та >>)
   if (activePage < totalPages) {
     buttons.push(createPageBtn('>', activePage + 1, 'arrow'));
     buttons.push(createPageBtn('>>', totalPages, 'arrow'));
@@ -217,7 +211,6 @@ function renderPagination(totalPages, activePage) {
   buttons.forEach(btn => paginationContainer.appendChild(btn));
 }
 
-// Допоміжна функція для створення кнопки
 function createPageBtn(text, page, className) {
   const btn = document.createElement('button');
   btn.className = `pg-btn ${className}`;

@@ -2,20 +2,28 @@
   padding: 40px 20px;
   padding-bottom: 10px;
   background-color: #242424;
-  color: #F4F4F4;
+  color: #f4f4f4;
+
+  display: flex;
+  justify-content: center;
 }
 
 .footer-logo-icon {
-  fill: #F4F4F4;
+  fill: #f4f4f4;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
 }
 
 .footer-list {
   display: flex;
   gap: 12px;
+  margin-bottom: 40px;
 }
 
 .footer-icon-media {
-  fill: #F4F4F4;
+  fill: #f4f4f4;
   display: flex;
   align-items: center;
 }
@@ -33,26 +41,19 @@
 .footer-first-half-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
-
 
 .sm-list {
   margin-bottom: 40px;
 }
 
 .footer-text {
-  /* Box model */
   margin-bottom: 20px;
   width: 335px;
-
-  /* Typography */
-  color: #F4F4F4;
+  color: #f4f4f4;
   letter-spacing: -0.02em;
   font-weight: 400;
   font-size: 38px;
-
-  /* line-height: 44px; */ 
   line-height: 44px;
   letter-spacing: -0.02em;
 }
@@ -76,58 +77,81 @@
 }
 
 .subs-input {
+  min-width: 335px;
+  background: transparent;
+  border: 1px solid #f4f4f4;
   border-radius: 30px;
-  border: 1px solid #f6f6f6;
   padding: 12px 14px;
-  background-color: transparent;
-  width: 100%;
-  margin-bottom: 12px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .subs-input::placeholder {
-  color: rgba(246, 246, 246, 0.6);
+  color: rgba(244, 244, 244, 0.6);
   font-size: 14px;
   line-height: 1.28;
 }
 
 .footer-form-btn {
-  /* Box model */
-  width: 100%;
+  min-width: 335px;
   display: flex;
   padding: 12px;
   justify-content: center;
   align-items: center;
   margin-bottom: 120px;
 
-  /* Visual */
   border: none;
   border-radius: 30px;
-  background: #F4F4F4;
+  background: #f4f4f4;
   color: #242424;
   font-size: 14px;
   line-height: 1.28;
 }
 
-.copywrite-text,
-.pp-wrapper {
-  color: #F4F4F4;
-  font-size: 12px;
-  line-height: 0.83;
-  letter-spacing: -0.02em;
-  opacity: 0.9;
+.copywrite-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
 
-.copywrite-text {
-  margin-bottom: 10px;
+.copywrite-text,
+.copywrite-wrapper a,
+.copywrite-wrapper span {
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #c6cdd1;
+  opacity: 0.9;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.copywrite-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copywrite-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-
   .footer-main-wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    gap: 114px;
+  }
+
+  .footer-section {
     padding: 64px 48px;
+    padding-bottom: 14px;
   }
 
   .footer-logo {
@@ -136,10 +160,11 @@
   }
 
   .footer-text {
-    width: 434px;
-    font-size: 54px;
     margin-bottom: 32px;
-    line-height: 0.92;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: -0.02em;
   }
 
   .footer-text-accent {
@@ -153,27 +178,30 @@
 
   .footer-form-btn {
     font-size: 16px;
+    margin-bottom: 64px;
   }
 
   .copywrite-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 24px;
-    gap: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .copywrite-bottom-row {
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto; 
+    flex-grow: 1; 
+    margin-left: 80px;
   }
 
   .subs-form {
-    width: 358px;
+    max-width: 352px;
   }
 
-  .copywrite-text,
-  .pp-wrapper {
-    margin-bottom: unset;
-  }
 }
 
 @media screen and (min-width: 1440px) {
-
   .footer-first-half-wrapper {
     margin-right: 156px;
   }
@@ -184,28 +212,33 @@
     gap: 155px;
   }
 
-  .footer-main-wrapper {
-    justify-content: flex-start;
+  .footer-section {
     padding: 66px 48px;
+    padding-bottom: 20px;
   }
 
   .form-container {
     width: 360px;
   }
   .footer-text {
-    width: 488px;
-    font-size: 64px;
-    line-height: 0.92;
+    min-width: 595px;
+    font-size: 56px;
   }
 
   .footer-text-accent {
     font-size: 64px;
   }
+
   .subs-form {
     width: 360px;
   }
+
   .copywrite-wrapper {
     font-size: 14px;
+    padding: 0;
+  }
+
+  .copywrite-bottom-row {
+    margin-left: 121px;
   }
 }
-

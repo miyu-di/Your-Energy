@@ -14,20 +14,20 @@
 
   position: relative;
   padding-bottom: 4px;
-font-size: 16px;
+  font-size: 16px;
   transition: color 0.3s ease;
   cursor: pointer;
   font-weight: 400;
-line-height: 24px; 
-color: rgba(36, 36, 36, 0.6);
+  line-height: 24px;
+  color: rgba(36, 36, 36, 0.6);
 }
 
 .filter-btn.active {
-  color: #242424; 
+  color: #242424;
 }
 
 .filter-btn.active::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -38,7 +38,7 @@ color: rgba(36, 36, 36, 0.6);
 }
 
 .filter-item {
-  width: 290px;
+  max-width: 290px;
   height: 242px;
   border-radius: 20px;
 }
@@ -49,29 +49,28 @@ color: rgba(36, 36, 36, 0.6);
   align-items: center;
 }
 
-
 .exercises-search {
   display: flex;
   align-items: center;
   width: 335px;
   height: 48px;
   padding: 0 16px;
-  border: 1px solid #1b1b1b; 
-  border-radius: 30px;    
+  border: 1px solid #1b1b1b;
+  border-radius: 30px;
   background-color: transparent;
 }
 
 .exercises-search input {
   flex-grow: 1;
-  border: none;           
-  outline: none;          
+  border: none;
+  outline: none;
   background: transparent;
   font-size: 16px;
   color: #1b1b1b;
 }
 
 .exercises-search input::placeholder {
-  color: #1b1b1b;         
+  color: #1b1b1b;
   opacity: 1;
 }
 
@@ -90,7 +89,6 @@ color: rgba(36, 36, 36, 0.6);
   fill: none;
 }
 
-
 .exercises-list {
   display: flex;
   flex-wrap: wrap;
@@ -98,12 +96,11 @@ color: rgba(36, 36, 36, 0.6);
   gap: 10px;
 }
 
-
 .filter-item {
-  width: 290px; 
+  width: 290px;
   height: 242px;
   border-radius: 20px;
-  cursor: pointer; 
+  cursor: pointer;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -132,27 +129,21 @@ color: rgba(36, 36, 36, 0.6);
   gap: 8px;
   color: #242424;
   font-weight: 400;
-font-size: 28px;
-
-line-height: 136%;
-letter-spacing: -0.02em;
-
-align-items: center;
+  font-size: 28px;
+  line-height: 136%;
+  letter-spacing: -0.02em;
+  align-items: center;
 }
 .breadcrumb-current {
-  color: rgba(36, 36, 36, 0.5); 
-
+  color: rgba(36, 36, 36, 0.5);
   font-weight: 400;
-font-size: 20px;
-
-line-height: 100%;
-letter-spacing: -0.02em;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
 }
 
-
-
 .exercise-item {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 16px;
   border-radius: 15px;
   min-width: 335px;
@@ -208,7 +199,7 @@ letter-spacing: -0.02em;
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%;       
+  width: 100%;
   overflow: hidden;
 }
 
@@ -229,14 +220,13 @@ letter-spacing: -0.02em;
 }
 
 .info-value {
-  white-space: nowrap; 
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
 }
-
 
 .exercise-box {
   display: flex;
@@ -251,8 +241,6 @@ letter-spacing: -0.02em;
   justify-content: center;
 }
 
-
-/* Контейнер пагінації */
 .pagination-container {
   display: flex;
   justify-content: center;
@@ -262,34 +250,32 @@ letter-spacing: -0.02em;
   margin-bottom: 40px;
 }
 
-/* Базовий стиль кнопки пагінації */
 .pg-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   width: 32px;
   height: 32px;
   padding: 0;
-  
+
   background: transparent;
-  border: 1px solid transparent; /* Рамка прозора за замовчуванням */
-  border-radius: 50%; /* Робимо ідеальне коло */
-  
+  border: 1px solid transparent;
+  border-radius: 50%;
+
   font-family: inherit;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
-  color: rgba(36, 36, 36, 0.4); /* Сірий колір для неактивних */
-  
+  color: rgba(36, 36, 36, 0.4);
+
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-/* Стиль для активної сторінки */
 .pg-btn.active {
-  color: #242424; /* Чорний колір тексту */
-  border-color: #242424; /* Чорне коло навколо */
+  color: #242424;
+  border-color: #242424;
 }
 
 .pg-btn:not(.active):hover {
@@ -302,8 +288,9 @@ letter-spacing: -0.02em;
     gap: 32px 16px;
   }
 
-  .filter-item, .exercise-item {
-    width: calc((100% - 16px) / 2); 
+  .filter-item,
+  .exercise-item {
+    width: calc((100% - 16px) / 2);
   }
 
   .exercises-header {
@@ -312,16 +299,16 @@ letter-spacing: -0.02em;
     align-items: center;
     margin-bottom: 32px;
   }
-  
+
   .exercises-controls {
-    flex-direction: row; 
+    flex-direction: row;
     gap: 20px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .exercise-box {
-    flex-direction: row; 
+    flex-direction: row;
     align-items: flex-start;
     gap: 32px;
   }
@@ -331,12 +318,12 @@ letter-spacing: -0.02em;
   }
 
   .quote-section {
-    order: -1;      
-    width: 335px;  
+    order: -1;
     flex-shrink: 0;
   }
 
-  .filter-item, .exercise-item {
-    width: calc((100% - 32px) / 3); 
+  .filter-item,
+  .exercise-item {
+    width: calc((100% - 32px) / 3);
   }
 }

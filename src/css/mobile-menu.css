@@ -7,23 +7,19 @@
   height: 100%;
   transform: translate(100%);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 20px;
+  padding: 0;
   background-color: #242424;
   color: #f4f4f4;
 }
 
 .mobile-menu-wrapper {
-  /* width: 100%;
-  height: 100%; */
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 48px;
-
-  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  height: 100%; 
+  padding: 20px;
+  position: relative;
 }
 
 .mobile-menu.is-open {
@@ -38,6 +34,17 @@
 .menu-close-btn {
     background-color: transparent;
     border: none;
+    position: absolute;
+  top: 14px;    /* Відступ зверху */
+  right: 14px;
+
+}
+
+.mobile-menu-nav {
+  flex-grow: 1; /* Займає весь вільний простір */
+  display: flex;
+  align-items: center; /* Центруємо по горизонталі */
+  justify-content: center; /* Центруємо по вертикалі */
 }
 
 .mobile-menu-close-button {
@@ -56,6 +63,16 @@
   row-gap: 22px;
 }
 
+.mobile-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
 @media screen and (min-width: 768px) {
-    display: none;
+  .mobile-menu {
+      display: none;
+  }  
   }
