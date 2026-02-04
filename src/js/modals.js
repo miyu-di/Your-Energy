@@ -2,13 +2,14 @@ import { getExerciseById, patchRating } from './api.js';
 import iconSprite from '../images/icons.svg';
 
 const modalBackdrop = document.querySelector('#exercise-modal');
-const exercisesList = document.querySelector('.exercises-list');
+const exercisesList = document.querySelector('.exercises-list'); 
 let currentExerciseData = null;
 
 if (exercisesList) {
   exercisesList.addEventListener('click', async e => {
     const startBtn = e.target.closest('.exercise-start-btn');
     if (!startBtn) return;
+
     try {
       const data = await getExerciseById(startBtn.dataset.id);
       if (data) openModal(data);
@@ -31,12 +32,16 @@ export function openModal(data) {
 function initFavoriteBtn(data) {
   const favBtn = document.querySelector('.btn-favorite');
   if (!favBtn) return;
+
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   const isFavorite = favorites.some(item => item._id === data._id);
+
   updateFavBtnState(favBtn, isFavorite);
+
   favBtn.addEventListener('click', () => {
     const currentFavs = JSON.parse(localStorage.getItem('favorites')) || [];
     const index = currentFavs.findIndex(item => item._id === data._id);
+
     if (index !== -1) {
       currentFavs.splice(index, 1);
       updateFavBtnState(favBtn, false);
@@ -44,15 +49,20 @@ function initFavoriteBtn(data) {
       currentFavs.push(data);
       updateFavBtnState(favBtn, true);
     }
+
     localStorage.setItem('favorites', JSON.stringify(currentFavs));
   });
 }
 
 function updateFavBtnState(btn, isFav) {
   if (isFav) {
-    btn.innerHTML = `Remove from favorites <svg class="modal-heart" width="20" height="20"><use href="${iconSprite}#heart"></use></svg>`;
+    btn.innerHTML = `Remove from favorites <svg class="modal-heart" width="20" height="20">
+                <use href="${iconSprite}#heart"></use>
+              </svg>`;
   } else {
-    btn.innerHTML = `Add to favorites <svg class="modal-heart" width="20" height="20"><use href="${iconSprite}#heart"></use></svg>`;
+    btn.innerHTML = `Add to favorites <svg class="modal-heart" width="20" height="20">
+                <use href="${iconSprite}#heart"></use>
+              </svg>`;
   }
 }
 
@@ -61,6 +71,7 @@ function closeModal() {
   modalBackdrop.innerHTML = '';
   document.body.classList.remove('no-scroll');
   window.removeEventListener('keydown', handleEsc);
+
   if (window.location.pathname.includes('favorite')) {
     const event = new Event('favorites-updated');
     window.dispatchEvent(event);
@@ -86,31 +97,19 @@ document.addEventListener('click', e => {
   }
 });
 
-
 function initRatingLogic() {
   let selectedRating = 0;
-  const radios = document.querySelectorAll('.rating-radio'); 
+  const stars = document.querySelectorAll('.star-input');
   const ratingValueLabel = document.querySelector('#rating-value');
   const form = document.getElementById('rating-form');
-  const labels = document.querySelectorAll('.rating-label'); 
 
-  radios.forEach(radio => {
-    radio.addEventListener('change', e => {
-      selectedRating = Number(e.target.value);
+  stars.forEach(star => {
+    star.addEventListener('click', e => {
+      selectedRating = Number(e.target.dataset.value);
       ratingValueLabel.textContent = `${selectedRating}.0`;
-
-      labels.forEach(label => {
-        const labelValue = Number(label.dataset.value);
-        const icon = label.querySelector('svg');
-
-        if (labelValue <= selectedRating) {
-          icon.style.fill = '#EEA10C';
-          icon.style.stroke = '#EEA10C';
-        } else {
-          icon.style.fill = 'rgba(244, 244, 244, 0.2)'; 
-          icon.style.stroke = 'rgba(244, 244, 244, 0.2)'; 
-        }
-      });
+      stars.forEach(s =>
+        s.classList.toggle('active', s.dataset.value <= selectedRating)
+      );
     });
   });
 
@@ -136,50 +135,6 @@ function initRatingLogic() {
     }
   };
 }
-
-
-function createRatingMarkup(exerciseId) {
-  return `
-    <div class="modal-content rating-modal">
-      <button type="button" class="modal-close-btn" id="modal-close">
-        <svg class="modal-close-icon" width="28" height="28"><use href="${iconSprite}#cross"></use></svg>
-      </button>
-      <p class="rating-label">Rating</p>
-      <div class="rating-value-container">
-        <span id="rating-value">0.0</span>
-        
-        <div class="star-rating-wrapper">
-            ${[1, 2, 3, 4, 5]
-              .map(
-                i => `
-                <div class="rating-group">
-                    <input class="rating-radio visually-hidden" type="radio" name="rate" id="star${i}" value="${i}">
-                    <label class="rating-label" for="star${i}" data-value="${i}">
-                        <svg class="rating-star-icon" width="24" height="24">
-                            <use href="${iconSprite}#star"></use>
-                        </svg>
-                    </label>
-                </div>
-            `
-              )
-              .join('')}
-        </div>
-      </div>
-
-      <form class="rating-form" id="rating-form">
-        <input type="email" name="email" placeholder="Email" required 
-               pattern="^\\w+(\\.\\w+)?@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$" class="rating-input"/>
-        <textarea name="comment" placeholder="Your comment" required class="rating-textarea"></textarea>
-        <button type="submit" class="rating-send-btn">Send</button>
-      </form>
-    </div>
-    
-    <style>
-        
-    </style>
-    `;
-}
-
 
 function createModalMarkup(data) {
   const {
@@ -227,18 +182,32 @@ function createModalMarkup(data) {
     </div>`;
 }
 
+function createRatingMarkup(exerciseId) {
+  return `
+    <div class="modal-content rating-modal">
+      <button type="button" class="modal-close-btn" id="modal-close">
+        <svg class="modal-close-icon" width="28" height="28"><use href="${iconSprite}#cross"></use></svg>
+      </button>
+      <p class="rating-label">Rating</p>
+      <div class="rating-value-container">
+        <span id="rating-value">0.0</span>
+        <div class="star-rating">
+            ${[1, 2, 3, 4, 5].map(i => `<span class="star-input" data-value="${i}">★</span>`).join('')}
+        </div>
+      </div>
+      <form class="rating-form" id="rating-form">
+        <input type="email" name="email" placeholder="Email" required 
+               pattern="^\\w+(\\.\\w+)?@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$" class="rating-input"/>
+        <textarea name="comment" placeholder="Your comment" required class="rating-textarea"></textarea>
+        <button type="submit" class="rating-send-btn">Send</button>
+      </form>
+    </div>`;
+}
+
 function renderStars(rating) {
   let stars = '';
   for (let i = 1; i <= 5; i++) {
-    const isFilled = i <= Math.round(rating);
-    const color = isFilled ? '#EEA10C' : 'rgba(244, 244, 244, 0.2)';
-
-    stars += `
-        <span style="display: inline-flex;">
-            <svg class="modal-star-icon" width="18" height="18" style="fill: ${color}; stroke: ${color}">
-                <use href="${iconSprite}#star"></use>
-            </svg>
-        </span>`;
+    stars += `<span style="color: ${i <= Math.round(rating) ? '#EEA10C' : 'rgba(255,255,255,0.2)'}">★</span>`;
   }
   return `<div class="modal-stars">${stars}</div>`;
 }
