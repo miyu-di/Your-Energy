@@ -1,4 +1,4 @@
-import{getFilters as x,getExercises as b}from"./api-CA10J7K2.js";import{i as M}from"./icons-Diq81sPx.js";import"./vendor-D1yz-ZLW.js";function k(e){return e.map(({_id:t,name:r,rating:i,burnedCalories:o,time:a,bodyPart:n,target:y})=>`
+import{getFilters as x,getExercises as b}from"./api-CA10J7K2.js";import{i as M}from"./icons-mdIB9KqP.js";import"./vendor-D1yz-ZLW.js";function k(e){return e.map(({_id:t,name:r,rating:i,burnedCalories:o,time:a,bodyPart:n,target:y})=>`
       <li class="exercise-item">
         <div class="exercise-card-top">
           <span class="exercise-badge">WORKOUT</span>
@@ -58,4 +58,4 @@ import{getFilters as x,getExercises as b}from"./api-CA10J7K2.js";import{i as M}f
         </div>
     </li>
   `).join("")}function v(e){return e?e.charAt(0).toUpperCase()+e.slice(1):""}
-//# sourceMappingURL=filters-DYQNcV68.js.map
+//# sourceMappingURL=filters-CrtjN9eN.js.map
