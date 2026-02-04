@@ -157,7 +157,7 @@ function createModalMarkup(data) {
       </button>
       <div class="modal-exercise-card">
         <div class="modal-gif-wrapper">
-          <img src="${gifUrl}" alt="${name}" class="modal-gif" />
+          <img src="${gifUrl}" alt="${name}" class="modal-gif" width="295" height="258" />
         </div>
         <div class="modal-details">
           <h2 class="modal-title">${name}</h2>
