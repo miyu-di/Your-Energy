@@ -179,12 +179,12 @@
     align-items: flex-start;
   }
 
-  .rating-modal {
-    width: 430px;
-  }
-
   .modal-content {
     width: 704px;
     padding: 40px;
+  }
+
+    .rating-modal {
+    width: 430px;
   }
 }
