@@ -127,17 +127,6 @@
 
 /* ---------------------------- Rating styles ---------------------------- */
 
-.star-input {
-  font-size: 24px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.2);
-  transition: color 0.2s;
-}
-
-.star-input.active,
-.star-input:hover {
-  color: #eea10c;
-}
 
 .rating-value-container {
   display: flex;
@@ -170,7 +159,55 @@
   border-radius: 30px;
   font-weight: 500;
   cursor: pointer;
+} 
+
+.star-rating-group {
+  display: flex;
+  flex-direction: row-reverse; 
+  justify-content: flex-end;
+  gap: 4px;
 }
+
+.rating-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+}
+
+.rating-star-icon {
+  fill: rgba(255, 255, 255, 0.2);
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+
+.visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            border: 0;
+            padding: 0;
+            white-space: nowrap;
+            clip-path: inset(100%);
+            clip: rect(0 0 0 0);
+            overflow: hidden;
+        }
+        .star-rating-wrapper {
+            display: flex;
+            gap: 2px;
+        }
+        .rating-label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .rating-star-icon {
+            fill: rgba(244, 244, 244, 0.2); 
+            transition: fill 0.2s ease;
+        }
 
 
 @media screen and (min-width: 768px) {
@@ -179,12 +216,12 @@
     align-items: flex-start;
   }
 
-  .rating-modal {
-    width: 430px;
-  }
-
   .modal-content {
     width: 704px;
     padding: 40px;
+  }
+
+  .rating-modal {
+    width: 430px;
   }
 }
